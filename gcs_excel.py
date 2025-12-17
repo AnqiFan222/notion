@@ -6,11 +6,12 @@ def download_from_gcs(gs_path, local_path):
     """
     assert gs_path.startswith("gs://")
 
-    _, bucket_name, *blob_parts = gs_path.split("/")
-    blob_name = "/".join(blob_parts)
+    path = gs_path.replace("gs://", "", 1)
+    bucket_name, blob_name = path.split("/", 1)
 
     client = storage.Client()
     bucket = client.bucket(bucket_name)
     blob = bucket.blob(blob_name)
+
 
     blob.download_to_filename(local_path)
