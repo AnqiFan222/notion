@@ -11,4 +11,4 @@ COPY . .
 RUN pip install --no-cache-dir pandas numpy scipy openpyxl requests google-cloud-storage
 
 # 设置容器启动时运行的脚本
-CMD ["python", "test.py"]
+CMD ["python", "notion_llm.py"]
