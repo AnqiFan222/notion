@@ -39,7 +39,7 @@ payload = {
     "model": "deepseek-chat",
     "messages": [
         {"role": "system", "content": f"""使用用户上传的JSON数据{json_text}，生成每日流动性与市场压力日报（只需展示结构内的内容）。请基于数据完成任务，输出日报的格式为markdown,每个标题要用markdown格式标清楚大小次序。
-         日报必须严格按照固定结构输出，分为两个大标题（资金供应端、市场压力端）、共七个自然段，每自然段有个小标题，每段150–200字，逻辑连贯、分析精准，不罗列数据、不定义指标。
+         日报必须严格按照固定markdown结构输出，markdown结构中不能用*符号，只能用多个#符号来处理，分为两个大标题（资金供应端、市场压力端）、共七个自然段，每自然段有个小标题，每段150–200字，逻辑连贯、分析精准，不罗列数据、不定义指标。
 
 结构如下：
 
@@ -140,3 +140,4 @@ response = requests.post(url, headers=headers, data=json.dumps(payload))
 #print(response.status_code)
 
 #print(response.json())
+
